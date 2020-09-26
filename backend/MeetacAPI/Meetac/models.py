@@ -14,17 +14,18 @@ class MeetacUser(User):
     banned = models.IntegerField(default=0)
     reported = models.JSONField(blank=True)
     viewed = models.JSONField(blank=True)
-    
+
 
 class Message(models.Model):
-    id_sender= models.ForeignKey(MeetacUser)
-    id_receiver= models.ForeignKey(MeetacUser)
-    type= models.CharField(max_length=32,default='text')
-    body=models.JSONField(blank=True)
-    datetime=models.DateTimeField(_, auto_now=True, auto_now_add=False)
-    recieved=models.BooleanField(default=False)
-    read=models.BooleanField(default=False)
+    id_sender = models.ForeignKey(MeetacUser)
+    id_receiver = models.ForeignKey(MeetacUser)
+    type = models.CharField(max_length=32, default='text')
+    body = models.JSONField(blank=True)
+    datetime = models.DateTimeField(_, auto_now=True, auto_now_add=False)
+    recieved = models.BooleanField(default=False)
+    read = models.BooleanField(default=False)
+
 
 class Graph_history(models.Model):
-    date_time=models.DateTimeField(_, auto_now=True, auto_now_add=False)
-    graph= models.JSONField(blank=True)
+    date_time = models.DateTimeField(_, auto_now=True, auto_now_add=False)
+    graph = models.JSONField(blank=True)
