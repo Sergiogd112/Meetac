@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.urls import path, include
 from django.contrib.auth.models import User
-from .views import apiOverview
+from .views import apiOverview, TagListView
 
 urlpatterns = [
-    path('',apiOverview, name='api-overview')
+    path('api/',apiOverview, name='api-overview'),
+    path('tag_list/', TagListView.as_view(),name='tag_list')
 ]

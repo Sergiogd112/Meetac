@@ -6,25 +6,24 @@ from .models import *
 from django.views.generic import ListView, DetailView
 
 
-@api_view(['GET'])
+@api_view(["GET"])
 def apiOverview(request):
     api_urls = {
-        'List': '/list/',
-        'Detail View': '/detail/<str:pk>',
-        'Graph': '/graph',
-        'Tags List': '/tags',
-        'Detail Tag': '/tag/<str:pk>',
-        'Add Tag':'/newtag',
+        "List": "/list/",
+        "Detail View": "/detail/<str:pk>",
+        "Graph": "/graph",
+        "Tags List": "/tags",
+        "Detail Tag": "/tag/<str:pk>",
+        "Add Tag": "/newtag",
     }
     return Response(api_urls)
 
 
-@api_view(['GET'])
+@api_view(["GET"])
 def get_graph(request):
     return Response({})
 
 
-
 class TagListView(ListView):
-    queryset = Tag_history.objects.order_by('-count')
-    
+    model = Tag_history
+    template_name='taglist.html'

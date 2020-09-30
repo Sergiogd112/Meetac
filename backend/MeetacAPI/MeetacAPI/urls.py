@@ -20,5 +20,5 @@ from django.contrib.auth.models import User
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('api/',include('Meetac.urls'))
+    path('',include('Meetac.urls'))
 ]
